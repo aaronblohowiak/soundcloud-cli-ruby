@@ -13,6 +13,7 @@ GEM
     multi_json (1.7.9)
     multi_xml (0.5.5)
     multipart-post (1.2.0)
+    rainbow (1.1.4)
     rspec (2.14.1)
       rspec-core (~> 2.14.0)
       rspec-expectations (~> 2.14.0)
@@ -30,6 +31,6 @@ PLATFORMS
 
 DEPENDENCIES
   highline
-  multi_json
+  rainbow
   rspec
   soundcloud

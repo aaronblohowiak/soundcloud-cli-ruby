@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem "soundcloud"
 gem "highline"
-gem "multi_json"
+gem "rainbow"
 
 #dev
 gem "rspec"

@@ -1,4 +1,5 @@
 require 'highline/import'
+require 'rainbow'
 
 module Authentication
   class << self
@@ -24,7 +25,7 @@ module Authentication
     end
 
     def get_credentials
-      puts <<-EXPLANATION
+      warning = <<-EXPLANATION
 Soundcloud uses OAuth for authentication.
 To use sc-cli, you must register an app with Soundcloud.
 Register a new app here: http://soundcloud.com/you/apps
@@ -36,6 +37,8 @@ Your username and password WILL NOT be saved anywhere.
 
 If your access_token expires, you will have to re-enter your credentials.
 EXPLANATION
+      puts warning.foreground(:yellow)
+
       { 
         client_id: ask("Client ID: "),
         client_secret: ask("Client Secret: "),
