@@ -1,6 +1,9 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    colored (1.2)
+    cri (2.3.0)
+      colored (>= 1.2)
     diff-lcs (1.2.4)
     hashie (2.0.5)
     highline (1.6.19)
@@ -30,6 +33,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  cri
   highline
   rainbow
   rspec
