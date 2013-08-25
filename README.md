@@ -27,23 +27,23 @@ Search
 ====
 
 ```
-**name**
-    *search* - searches the Soundcloud API
-    aliases: *s*
+name
+    search - searches the Soundcloud API
+    aliases: s
 
-**usage**
-    *sc* *search* [type] [options]
+usage
+    sc search [type] [options]
 
-**subcommands**
-    *groups*        searches for groups
-    *playlists*     searches for playlists
-    *tracks*        searches for tracks
-    *users*         searches for users
+subcommands
+    groups        searches for groups
+    playlists     searches for playlists
+    tracks        searches for tracks
+    users         searches for users
 
-**options**
+options
     -h --help    show help for this command
 
-**options for sc**
+options for sc
     -h --help    show help for this command
 
 
@@ -65,13 +65,13 @@ By default, the permalink_url of the matched items will be printed with one url 
 Here's the output for `sc search tracks -h`:
 
 ```
-**name**
-    *tracks* - searches for tracks
+name
+    tracks - searches for tracks
 
-**usage**
-    *sc* *search* *tracks* [options]
+usage
+    sc search tracks [options]
 
-**options**
+options
     -bf --bpm[from]           return tracks with at least this bpm value
     -bt --bpm[to]             return tracks with at least this bpm value
     -cf --created_at[from]    (yyyy-mm-dd hh:mm:ss) return tracks created at this date or later
@@ -91,7 +91,7 @@ Here's the output for `sc search tracks -h`:
     -t --tags                comma separated list of tags
     -ty --types               a comma separated list of types
 
-**options for search**
+options for search
     -h --help                show help for this command
     -h --help                show help for this command
 

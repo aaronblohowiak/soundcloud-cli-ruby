@@ -37,11 +37,11 @@ unless STDOUT.tty?
 
   class String
     def formatted_as_title
-      "**" + self + "**"
+      self
     end
 
     def formatted_as_command
-      "*" + self + "*"
+      self
     end
 
     def formatted_as_option

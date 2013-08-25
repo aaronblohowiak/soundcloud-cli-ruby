@@ -1,0 +1,55 @@
+soundcloud-cli-ruby
+===================
+
+Soundcloud Command-Line Interface in Ruby
+
+It lets you do cool things like search for tracks and create a playlist from the results:
+
+  `sc s tracks -q awsome --fields=id | sc set create --title="My awesome set"`
+
+
+Help
+===
+
+You can always pass `-h` or `--help` to print the help for the current command.  In this way, the entire CLI is discoverable.  Expanded documentation and tips are provided below.
+
+Authentication
+======
+
+Soundcloud API requires OAuth for all of its functionality, so you'll need a registered Soundcloud application. If you've never registered a Soundcloud application before, it's easy! Just sign-in using your Soundcloud account and the fill out the short form at http://soundcloud.com/you/apps. If you've previously registered a Soundcloud application, it should be listed at http://soundcloud.com/you/apps.
+
+On your first use of sc-cli, you will be prompted to enter the Client ID, Client Secret, your username and your password.  These will all be sent **directly** to Soundcloud which will provide an `access_token`.  The `access_token` will be written to `$HOME/.sc-cli`.
+
+*Note*: Anyone with access to this file can impersonate you on Soundcloud, so it's important to keep it secure, just as you would treat your SSH private key.
+
+
+Search
+====
+
+```
+<%= `sc search -h` %>
+
+````
+
+For most of the searches, you can just `sc search [type] -q [query]`
+
+Example:
+
+```
+$ sc search users -q aaronblohowiak
+<%= `sc search users -q aaronblohowiak` %>
+```
+
+By default, the permalink_url of the matched items will be printed with one url per line.  You can change the field or have multiple fields printed by passing them like `--fields=avatar_url,permalink_url`. If you just want the full json response, use the `--json` flag.  For pagination, use the `--limit` and `--offset` parameters.
+
+
+Here's the output for `sc search tracks -h`:
+
+```
+<%= `sc search tracks -h` %>
+```
+
+Thanks
+===
+
+Some of the authentication documentation was derrived from the documentation of the `t` ruby gem.
