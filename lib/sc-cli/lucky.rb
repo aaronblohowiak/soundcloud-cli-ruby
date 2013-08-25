@@ -5,6 +5,7 @@ module ScCli::Lucky
     root.define_command do
       name 'lucky'
       usage 'lucky [options] [search term]'
+      summary 'picks a track at random and plays it using the `open` command.'
 
       instance_eval &ScCli::Search::TrackOptions
 

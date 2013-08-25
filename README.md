@@ -200,6 +200,8 @@ Find a track and play it from the command line.
 
 
 ```
+name
+    lucky - picks a track at random and plays it using the `open` command.
 
 usage
     sc lucky [options] [search term]
@@ -222,6 +224,38 @@ options for sc
     -h --help                show help for this command
 
 ```
+
+Another fun thing to do is to smashup songs from different genres.
+
+```
+$ sc smashup happy
+Playing http://soundcloud.com/treenaphoto/happy-mothers-day
+Playing http://soundcloud.com/riccoescalante/those-happy-moments
+```
+
+name
+    smashup - plays tracks from different genres simultaneously.  Like a mashup, but with more smash!
+
+usage
+    sc smashup [options] search terms
+
+options
+    -b --bpm[from]           return tracks with at least this bpm value
+    -B --bpm[to]             return tracks with at least this bpm value
+    -c --created_at[from]    (yyyy-mm-dd hh:mm:ss) return tracks created at this date or later
+    -C --created_at[to]      (yyyy-mm-dd hh:mm:ss) return tracks created at this date or earlier
+    -d --duration[from]      return tracks with at least this duration (in millis)
+    -D --duration[to]        return tracks with at most this duration (in millis)
+    -f --filter              One of: all,public,private,streamable,downloadable
+    -g --genres              a comma separated list of genres
+    -g --genres              comma-separated list of genres to smash!
+    -i --ids                 a comma separated list of track ids to filter on
+    -l --license             One of: no-rights-reserved,all-rights-reserved,cc-by,cc-by-sa,cc-by-nd,cc-by-nc,cc-by-nc-nd
+    -t --tags                comma separated list of tags
+    -T --types               a comma separated list of types
+
+options for sc
+    -h --help                show help for this command
 
 
 
