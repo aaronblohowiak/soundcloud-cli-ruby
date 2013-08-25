@@ -8,10 +8,15 @@ It lets you do cool things like search for tracks and create a playlist from the
   `sc s tracks -q awsome --fields=id | sc set create --title="My awesome set"`
 
 
+## Installation
+
+`git clone git@github.com:aaronblohowiak/soundcloud-cli-ruby.git sc; cd sc; gem build sc.gemspec; gem install *.gem; sc -h`
+
 Help
 ===
 
 You can always pass `-h` or `--help` to print the help for the current command.  In this way, the entire CLI is discoverable.  Expanded documentation and tips are provided below.
+
 
 Authentication
 ======
