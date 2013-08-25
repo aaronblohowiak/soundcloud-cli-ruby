@@ -3,6 +3,10 @@ soundcloud-cli-ruby
 
 Soundcloud Command-Line Interface in Ruby
 
+It lets you do cool things like search for tracks and create a playlist from the results:
+
+  `sc s tracks -q awsome --fields=id | sc set create --title="My awesome set"`
+
 
 Help
 ===
@@ -23,17 +27,25 @@ Search
 ====
 
 ```
-NAME
-    search - searches the Soundcloud API
+**name**
+    *search* - searches the Soundcloud API
+    aliases: *s*
 
-USAGE
-    sc search [type] [options]
+**usage**
+    *sc* *search* [type] [options]
 
-SUBCOMMANDS
-    groups        searches for groups
-    playlists     searches for playlists
-    tracks        searches for tracks
-    users         searches for users
+**subcommands**
+    *groups*        searches for groups
+    *playlists*     searches for playlists
+    *tracks*        searches for tracks
+    *users*         searches for users
+
+**options**
+    -h --help    show help for this command
+
+**options for sc**
+    -h --help    show help for this command
+
 
 ````
 
@@ -44,21 +56,22 @@ Example:
 ```
 $ sc search users -q aaronblohowiak
 http://soundcloud.com/aaronblohowiak
+
 ```
 
-By default, the permalink_url of the matched items will be printed with one url per line.  You can change the fields by passing them like `--fields=avatar_url,permalink_url`. If you just want the full json response, use the `--json` flag.  For pagination, use the `--limit` and `--offset` parameters.
+By default, the permalink_url of the matched items will be printed with one url per line.  You can change the field or have multiple fields printed by passing them like `--fields=avatar_url,permalink_url`. If you just want the full json response, use the `--json` flag.  For pagination, use the `--limit` and `--offset` parameters.
 
 
 Here's the output for `sc search tracks -h`:
 
 ```
-NAME
-    tracks - searches for tracks
+**name**
+    *tracks* - searches for tracks
 
-USAGE
-    sc search sc search tracks [options]
+**usage**
+    *sc* *search* *tracks* [options]
 
-OPTIONS
+**options**
     -bf --bpm[from]           return tracks with at least this bpm value
     -bt --bpm[to]             return tracks with at least this bpm value
     -cf --created_at[from]    (yyyy-mm-dd hh:mm:ss) return tracks created at this date or later
@@ -77,6 +90,11 @@ OPTIONS
     -q --q                   search term
     -t --tags                comma separated list of tags
     -ty --types               a comma separated list of types
+
+**options for search**
+    -h --help                show help for this command
+    -h --help                show help for this command
+
 ```
 
 Thanks

@@ -8,7 +8,7 @@ help_proc = Proc.new do |value, cmd|
   exit 0
 end
 
-super_cmd = Cri::Command.define do
+root = Cri::Command.define do
   name        'sc'
   usage       'sc [options] [command] [options]'
   summary     'CLI for the Soundcloud API'
@@ -16,7 +16,7 @@ super_cmd = Cri::Command.define do
   flag   :h,  :help,  'show help for this command', &help_proc
 end
 
-super_cmd.define_command do
+root.define_command do
   name 'authenticate'
   usage 'authenticate'
   summary 'Authenticates you with the Soundcloud API and writes your token to ~/.sc-cli'
@@ -29,6 +29,26 @@ super_cmd.define_command do
   end
 end
 
-ScCli::Search.add_commands(super_cmd)
+ScCli::Search.add_commands(root)
+ScCli::Playlist.add_commands(root)
 
-super_cmd.run(ARGV)
+
+unless STDOUT.tty?
+
+  class String
+    def formatted_as_title
+      "**" + self + "**"
+    end
+
+    def formatted_as_command
+      "*" + self + "*"
+    end
+
+    def formatted_as_option
+      self
+    end
+  end
+
+end
+
+root.run(ARGV)
