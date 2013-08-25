@@ -30,6 +30,8 @@ end
 ScCli::Search.add_commands(root)
 ScCli::Playlist.add_commands(root)
 ScCli::Track.add_commands(root)
+ScCli::Lucky.add_commands(root)
+
 
 #Don't dump tty formatting to stdout if it isn't a tty. cri workaround.
 unless STDOUT.tty? 

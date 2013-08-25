@@ -10,7 +10,13 @@ It lets you do cool things like search for tracks and create a playlist from the
 
 ## Installation
 
-`git clone git@github.com:aaronblohowiak/soundcloud-cli-ruby.git sc; cd sc; gem build sc.gemspec; gem install *.gem; sc -h`
+```
+git clone git@github.com:aaronblohowiak/soundcloud-cli-ruby.git sc
+cd sc
+gem build sc.gemspec
+gem install *.gem
+sc -h
+```
 
 Help
 ===
@@ -27,6 +33,7 @@ On your first use of sc-cli, you will be prompted to enter the Client ID, Client
 
 *Note*: Anyone with access to this file can impersonate you on Soundcloud, so it's important to keep it secure, just as you would treat your SSH private key.
 
+If you ever need to re-authenticate, you can use `sc authenticate`.
 
 Search
 ====
@@ -180,6 +187,43 @@ options for track
     -h --help       show help for this command
 
 ```
+
+
+Fun
+===
+
+Find a track and play it from the command line.
+
+`sc lucky` will play a random track
+
+`sc lucky moombahton` will search for `moombahton` and play back one of the first 20 hits at random.
+
+
+```
+
+usage
+    sc lucky [options] [search term]
+
+options
+    -b --bpm[from]           return tracks with at least this bpm value
+    -B --bpm[to]             return tracks with at least this bpm value
+    -c --created_at[from]    (yyyy-mm-dd hh:mm:ss) return tracks created at this date or later
+    -C --created_at[to]      (yyyy-mm-dd hh:mm:ss) return tracks created at this date or earlier
+    -d --duration[from]      return tracks with at least this duration (in millis)
+    -D --duration[to]        return tracks with at most this duration (in millis)
+    -f --filter              One of: all,public,private,streamable,downloadable
+    -g --genres              a comma separated list of genres
+    -i --ids                 a comma separated list of track ids to filter on
+    -l --license             One of: no-rights-reserved,all-rights-reserved,cc-by,cc-by-sa,cc-by-nd,cc-by-nc,cc-by-nc-nd
+    -t --tags                comma separated list of tags
+    -T --types               a comma separated list of types
+
+options for sc
+    -h --help                show help for this command
+
+```
+
+
 
 Thanks
 ===

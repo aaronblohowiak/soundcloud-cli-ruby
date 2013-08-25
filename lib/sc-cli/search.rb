@@ -20,20 +20,7 @@ module ScCli::Search
     define_search_endpoint(search, 'playlists', :set)
     define_search_endpoint(search, 'groups')
 
-    define_search_endpoint(search, 'tracks') do
-      optional  :t,  :tags,   'comma separated list of tags'
-      optional  :f,  :filter,   'One of: all,public,private,streamable,downloadable'
-      optional  :l,  :license, 'One of: no-rights-reserved,all-rights-reserved,cc-by,cc-by-sa,cc-by-nd,cc-by-nc,cc-by-nc-nd'
-      optional  :b, :"bpm[from]", 'return tracks with at least this bpm value'
-      optional  :B, :"bpm[to]", 'return tracks with at least this bpm value'
-      optional  :d, :"duration[from]", 'return tracks with at least this duration (in millis)'
-      optional  :D, :"duration[to]", 'return tracks with at most this duration (in millis)'
-      optional  :c, :"created_at[from]", '(yyyy-mm-dd hh:mm:ss) return tracks created at this date or later'
-      optional  :C, :"created_at[to]", '(yyyy-mm-dd hh:mm:ss) return tracks created at this date or earlier'
-      optional  :i,  :ids, 'a comma separated list of track ids to filter on'
-      optional  :g,  :genres, 'a comma separated list of genres'
-      optional  :T, :types, 'a comma separated list of types'
-    end
+    define_search_endpoint(search, 'tracks', &ScCli::Search::TrackOptions)
   end
 
   def define_search_endpoint(search, endpoint, *args, &block)
@@ -60,4 +47,19 @@ module ScCli::Search
       ScCli.print_results(results, json, fields)
     end
   end
+
+  TrackOptions = Proc.new{
+    optional  :t,  :tags,   'comma separated list of tags'
+    optional  :f,  :filter,   'One of: all,public,private,streamable,downloadable'
+    optional  :l,  :license, 'One of: no-rights-reserved,all-rights-reserved,cc-by,cc-by-sa,cc-by-nd,cc-by-nc,cc-by-nc-nd'
+    optional  :b, :"bpm[from]", 'return tracks with at least this bpm value'
+    optional  :B, :"bpm[to]", 'return tracks with at least this bpm value'
+    optional  :d, :"duration[from]", 'return tracks with at least this duration (in millis)'
+    optional  :D, :"duration[to]", 'return tracks with at most this duration (in millis)'
+    optional  :c, :"created_at[from]", '(yyyy-mm-dd hh:mm:ss) return tracks created at this date or later'
+    optional  :C, :"created_at[to]", '(yyyy-mm-dd hh:mm:ss) return tracks created at this date or earlier'
+    optional  :i,  :ids, 'a comma separated list of track ids to filter on'
+    optional  :g,  :genres, 'a comma separated list of genres'
+    optional  :T, :types, 'a comma separated list of types'
+  }
 end
