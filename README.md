@@ -59,10 +59,11 @@ http://soundcloud.com/aaronblohowiak
 
 ```
 
-By default, the permalink_url of the matched items will be printed with one url per line.  You can change the field or have multiple fields printed by passing them like `--fields=avatar_url,permalink_url`. If you just want the full json response, use the `--json` flag.  For pagination, use the `--limit` and `--offset` parameters.
+By default, the `permalink_url` of the matched items will be printed with one url per line.  You can change the field or have multiple fields printed by passing them like `--fields=avatar_url,permalink_url`. If you just want the full json response, use the `--json` flag.  For pagination, use the `--limit` and `--offset` parameters.
 
 
 Here's the output for `sc search tracks -h`:
+
 
 ```
 name
@@ -104,6 +105,7 @@ Playlists / Sets
 
   `sc s tracks -q awsome --fields=id | sc set create --title="My awesome set"`
 
+```
 name
     create - creates a new playlist
 
@@ -126,9 +128,12 @@ options for playlist
     -h --help       show help for this command
     -h --help       show help for this command
 
+```
 
 There are several other features as well:
 
+
+```
 name
     playlist - uses the Soundcloud API to get and modify playlists
     aliases: set p playlists
@@ -147,6 +152,7 @@ options
 options for sc
     -h --help    show help for this command
 
+```
 
 
 Thanks
