@@ -40,9 +40,6 @@ subcommands
     tracks        searches for tracks
     users         searches for users
 
-options
-    -h --help    show help for this command
-
 options for sc
     -h --help    show help for this command
 
@@ -82,7 +79,6 @@ options
     -  --fields              the fields to output as csv. Default: permalink_url
     -f --filter              One of: all,public,private,streamable,downloadable
     -g --genres              a comma separated list of genres
-    -h --help                show help for this command
     -i --ids                 a comma separated list of track ids to filter on
     -  --json                Output the full response as json.
     -l --license             One of: no-rights-reserved,all-rights-reserved,cc-by,cc-by-sa,cc-by-nd,cc-by-nc,cc-by-nc-nd
@@ -93,7 +89,6 @@ options
     -ty --types               a comma separated list of types
 
 options for search
-    -h --help                show help for this command
     -h --help                show help for this command
 
 ```
@@ -118,14 +113,12 @@ description
 
 options
     -  --fields     the fields to output as csv. Default: permalink_url
-    -h --help       show help for this command
     -  --json       Output the full response as json.
     -s --sharing    sharing options for your playlist. One of public,private.
     -t --title      the title for your playlist
     -ids --tracks     comma-separated list of track ids.
 
 options for playlist
-    -h --help       show help for this command
     -h --help       show help for this command
 
 ```
@@ -145,9 +138,6 @@ subcommands
     create     creates a new playlist
     delete     deletes a playlist by id
     get        Retrieve information about a playlist
-
-options
-    -h --help    show help for this command
 
 options for sc
     -h --help    show help for this command

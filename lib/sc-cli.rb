@@ -26,11 +26,6 @@ module ScCli
     optional  nil, :fields, 'the fields to output as csv. Default: permalink_url'
     optional  nil, :json, 'Output the full response as json.'
   end
-  
-  Help = Proc.new do |value, cmd|
-    puts cmd.help
-    exit 0
-  end
 end
 
 Dir[File.dirname(__FILE__)+"/sc-cli/*.rb" ].sort.each {|file| require file }

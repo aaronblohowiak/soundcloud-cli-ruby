@@ -8,8 +8,6 @@ module ScCli::Playlist
 
       usage 'playlist [action] [options]'
       summary 'uses the Soundcloud API to get and modify playlists'
-
-      flag   :h,  :help,  'show help for this command', &ScCli::Help
     end
 
     playlist.define_command do
@@ -17,8 +15,6 @@ module ScCli::Playlist
       usage 'create [options]'
       summary 'creates a new playlist'
       description 'accepts track ids as a comma-separated list option or as a newline-separated list from STDIN.'
-
-      flag   :h,  :help,  'show help for this command', &ScCli::Help
       required :t, :title, 'the title for your playlist'
       optional :s, :sharing, 'sharing options for your playlist. One of public,private.'
       optional :ids, :tracks, 'comma-separated list of track ids.'
@@ -51,7 +47,6 @@ module ScCli::Playlist
       description 'deletes the playlist by id.'
 
       required :i, :id, 'the id of the playlist to delete'
-      flag   :h,  :help,  'show help for this command', &ScCli::Help
 
       run do |opts, args|
         puts ScCli.client.delete('/playlists/'+opts[:id]).to_json
@@ -67,7 +62,6 @@ module ScCli::Playlist
       required :i, :id, 'the id of the playlist to delete'
       optional :sr, :'sub-resource', 'the subresource to fetch. One of: users,emails,secret-token'
       instance_eval &ScCli::Formatting
-      flag   :h,  :help,  'show help for this command', &ScCli::Help
 
       run do |opts, args|
         fields, json = opts.delete(:fields), opts.delete(:json)

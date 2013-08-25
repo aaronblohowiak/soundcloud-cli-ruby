@@ -21,8 +21,6 @@ root.define_command do
   usage 'authenticate'
   summary 'Authenticates you with the Soundcloud API and writes your token to ~/.sc-cli'
 
-  flag   :h,  :help,  'show help for this command', &ScCli::Help
-
   run do
     token = ScCli::Authentication.acquire_token!
     puts "Authentication successful. Your token is: #{token}"

@@ -7,7 +7,6 @@ module ScCli::Search
     optional  :q,  :q,   'search term'
     optional  nil, :limit, 'the number of results to return. 50 by default, max 200'
     optional  nil, :offset, 'the number of results to skip. 0 by default, max 8000'
-    flag   :h,  :help,  'show help for this command', &ScCli::Help
     instance_eval &ScCli::Formatting
   }
 
@@ -17,8 +16,6 @@ module ScCli::Search
       aliases :s
       usage 'search [type] [options]'
       summary 'searches the Soundcloud API'
-
-      flag   :h,  :help,  'show help for this command', &ScCli::Help
     end
 
     define_search_endpoint(search, 'users')
