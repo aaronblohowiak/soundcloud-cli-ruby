@@ -1,5 +1,4 @@
 require 'set'
-require 'json'
 
 module ScCli::Track
   extend self
@@ -32,7 +31,7 @@ module ScCli::Track
           VALID_TYPES.include? File.extname(filename)
         end
 
-        $stderr.puts "Not uploading files with invalid names: " + (filenames - valid).to_json.red
+        $stderr.puts "Not uploading files with invalid names: " + (filenames - valid).inspect.red
 
         if valid.length > 1 && opts[:title]
           $stderr.puts "Ignoring track title since multiple filenames were provided.".red

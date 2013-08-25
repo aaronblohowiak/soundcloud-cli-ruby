@@ -38,7 +38,7 @@ module ScCli::Playlist
     playlist.define_command do
       name 'delete'
       usage 'delete [options]'
-      summary 'deletes a playlist by id'.foreground(:red)
+      summary 'deletes a playlist by id'
       description 'deletes the playlist by id.'
 
       required :i, :id, 'the id of the playlist to delete'

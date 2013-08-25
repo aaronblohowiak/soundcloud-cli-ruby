@@ -1,4 +1,5 @@
 require 'soundcloud'
+require 'csv'
 
 module ScCli
   extend self
@@ -17,7 +18,7 @@ module ScCli
       fields ||= default_field
       fields = fields.split(",")
 
-      if results.is_a? Hashie::Mash
+      if results.is_a?(Hashie::Mash) || results.respond_to?(:key)
         results = [results] #Array(hsh) => hsh.to_a, which is NOT what we want :D
       end
 

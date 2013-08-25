@@ -1,5 +1,3 @@
-require 'csv'
-
 module ScCli::Search
   extend self
 

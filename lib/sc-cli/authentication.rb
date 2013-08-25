@@ -1,5 +1,4 @@
 require 'highline/import'
-require 'rainbow'
 
 module ScCli::Authentication
   extend self
@@ -38,7 +37,7 @@ Your username and password WILL NOT be saved anywhere.
 
 If your access_token expires, you will have to re-enter your credentials.
 EXPLANATION
-    puts warning.foreground(:yellow)
+    puts warning.yellow
 
     { 
       client_id: ask("Client ID: "),

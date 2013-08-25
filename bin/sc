@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require File.dirname(__FILE__) + '/lib/sc-cli'
+require File.expand_path('sc-cli', File.dirname(__FILE__)+"/../lib/")
 require 'cri'
 
 help_proc = Proc.new do |value, cmd|
@@ -31,9 +31,8 @@ ScCli::Search.add_commands(root)
 ScCli::Playlist.add_commands(root)
 ScCli::Track.add_commands(root)
 
-
-unless STDOUT.tty?
-
+#Don't dump tty formatting to stdout if it isn't a tty. cri workaround.
+unless STDOUT.tty? 
   class String
     def formatted_as_title
       self
@@ -47,7 +46,6 @@ unless STDOUT.tty?
       self
     end
   end
-
 end
 
 root.run(ARGV)
