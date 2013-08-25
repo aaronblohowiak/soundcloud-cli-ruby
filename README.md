@@ -97,6 +97,58 @@ options for search
 
 ```
 
+
+Playlists / Sets
+===
+`sc` is most useful for creating and deleting playlists.  You can create a playlist by passing the track ids either as a comma-separated list OR by providing a newline-delimited list to STDIN.  This lets you create playlists as part of a pipeline.
+
+  `sc s tracks -q awsome --fields=id | sc set create --title="My awesome set"`
+
+name
+    create - creates a new playlist
+
+usage
+    sc playlist create [options]
+
+description
+    accepts track ids as a comma-separated list option or as a newline-separated
+    list from STDIN.
+
+options
+    -  --fields     the fields to output as csv. Default: permalink_url
+    -h --help       show help for this command
+    -  --json       Output the full response as json.
+    -s --sharing    sharing options for your playlist. One of public,private.
+    -t --title      the title for your playlist
+    -ids --tracks     comma-separated list of track ids.
+
+options for playlist
+    -h --help       show help for this command
+    -h --help       show help for this command
+
+
+There are several other features as well:
+
+name
+    playlist - uses the Soundcloud API to get and modify playlists
+    aliases: set p playlists
+
+usage
+    sc playlist [action] [options]
+
+subcommands
+    create     creates a new playlist
+    delete     deletes a playlist by id
+    get        Retrieve information about a playlist
+
+options
+    -h --help    show help for this command
+
+options for sc
+    -h --help    show help for this command
+
+
+
 Thanks
 ===
 

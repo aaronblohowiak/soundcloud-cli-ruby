@@ -49,6 +49,20 @@ Here's the output for `sc search tracks -h`:
 <%= `sc search tracks -h` %>
 ```
 
+
+Playlists / Sets
+===
+`sc` is most useful for creating and deleting playlists.  You can create a playlist by passing the track ids either as a comma-separated list OR by providing a newline-delimited list to STDIN.  This lets you create playlists as part of a pipeline.
+
+  `sc s tracks -q awsome --fields=id | sc set create --title="My awesome set"`
+
+<%= `sc playlist create -h` %>
+
+There are several other features as well:
+
+<%= `sc playlists -h` %>
+
+
 Thanks
 ===
 

@@ -7,6 +7,26 @@ module ScCli
     @client ||= Soundcloud.new(access_token: Authentication.token)
   end
 
+  def print_results(results, json, fields, default_field='permalink_url')
+    if json
+      if fields
+        $stderr.puts "Ignoring fields parameter since json output was requested."
+      end
+      puts results.to_json
+    else
+      fields ||= default_field
+      fields = fields.split(",")
+      Array(results).each do |t|
+        puts fields.map{|f| t[f]}.to_csv
+      end
+    end
+  end
+
+  Formatting = Proc.new do
+    optional  nil, :fields, 'the fields to output as csv. Default: permalink_url'
+    optional  nil, :json, 'Output the full response as json.'
+  end
+  
   Help = Proc.new do |value, cmd|
     puts cmd.help
     exit 0

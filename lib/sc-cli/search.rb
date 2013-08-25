@@ -7,14 +7,14 @@ module ScCli::Search
     optional  :q,  :q,   'search term'
     optional  nil, :limit, 'the number of results to return. 50 by default, max 200'
     optional  nil, :offset, 'the number of results to skip. 0 by default, max 8000'
-    optional  nil, :fields, 'the fields to output as csv. Default: permalink_url'
-    optional  nil, :json, 'Output the full response as json.'
     flag   :h,  :help,  'show help for this command', &ScCli::Help
+    instance_eval &ScCli::Formatting
   }
 
   def add_commands(root)
     search = root.define_command do
       name 'search'
+      aliases :s
       usage 'search [type] [options]'
       summary 'searches the Soundcloud API'
 
@@ -22,7 +22,7 @@ module ScCli::Search
     end
 
     define_search_endpoint(search, 'users')
-    define_search_endpoint(search, 'playlists')
+    define_search_endpoint(search, 'playlists', :set)
     define_search_endpoint(search, 'groups')
 
     define_search_endpoint(search, 'tracks') do
@@ -41,10 +41,11 @@ module ScCli::Search
     end
   end
 
-  def define_search_endpoint(search, endpoint, &block)
+  def define_search_endpoint(search, endpoint, *args, &block)
     search.define_command do
       name        endpoint
-      usage       "sc search #{endpoint} [options]"
+      aliases     *args if args
+      usage       "#{endpoint} [options]"
       summary     "searches for #{endpoint}"
 
       instance_eval &ScCli::Search::Options
@@ -61,22 +62,7 @@ module ScCli::Search
       fields = opts.delete(:fields)
 
       results = ScCli.client.get(endpoint, opts)
-      print_results(results, json, fields)
-    end
-  end
-
-  def print_results(results, json, fields)
-    if json
-      if fields
-        $stderr.puts "Ignoring fields parameter since json output was requested."
-      end
-      puts results.to_json
-    else
-      fields ||= 'permalink_url'
-      fields = fields.split(",")
-      results.each do |t|
-        puts fields.map{|f| t[f]}.to_csv
-      end
+      ScCli.print_results(results, json, fields)
     end
   end
 end
