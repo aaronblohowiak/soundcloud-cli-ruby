@@ -4,8 +4,8 @@ Gem::Specification.new do |s|
   s.name        = 'sc'
   s.version     = "0.0.1"
   s.homepage    = 'https://github.com/aaronblohowiak/soundcloud-cli-ruby/'
-  s.summary     = 'a library for interacting with Soundcloud from the command line'
-  s.description = 'sc easily allows you to manipulate your Soundcloud content from the cli'
+  s.summary     = 'a library for interacting with SoundCloud from the command line'
+  s.description = 'sc easily allows you to manipulate your SoundCloud content from the cli'
 
   s.author = 'Aaron Blohowiak'
   s.email  = 'aaron.blohowiak@gmail.com'

@@ -26,11 +26,11 @@ module ScCli::Authentication
 
   def get_credentials
     warning = <<-EXPLANATION
-Soundcloud uses OAuth for authentication.
-To use sc-cli, you must register an app with Soundcloud.
+SoundCloud uses OAuth for authentication.
+To use sc-cli, you must register an app with SoundCloud.
 Register a new app here: http://soundcloud.com/you/apps
 
-Your username and password will be sent directly to Soundcloud.
+Your username and password will be sent directly to SoundCloud.
 This tool will then write your access_token to $HOME/.sc-cli.
 
 Your username and password WILL NOT be saved anywhere.

@@ -7,7 +7,7 @@ module ScCli::Playlist
       aliases :set, :p, :playlists
 
       usage 'playlist [action] [options]'
-      summary 'uses the Soundcloud API to get and modify playlists'
+      summary 'uses the SoundCloud API to get and modify playlists'
     end
 
     playlist.define_command do

@@ -1,7 +1,7 @@
 soundcloud-cli-ruby
 ===================
 
-Soundcloud Command-Line Interface in Ruby
+SoundCloud Command-Line Interface in Ruby
 
 It lets you do cool things like search for tracks and create a playlist from the results:
 
@@ -27,11 +27,11 @@ You can always pass `-h` or `--help` to print the help for the current command. 
 Authentication
 ======
 
-Soundcloud API requires OAuth for all of its functionality, so you'll need a registered Soundcloud application. If you've never registered a Soundcloud application before, it's easy! Just sign-in using your Soundcloud account and the fill out the short form at http://soundcloud.com/you/apps. If you've previously registered a Soundcloud application, it should be listed at http://soundcloud.com/you/apps.
+SoundCloud API requires OAuth for all of its functionality, so you'll need a registered SoundCloud application. If you've never registered a SoundCloud application before, it's easy! Just sign-in using your SoundCloud account and the fill out the short form at http://soundcloud.com/you/apps. If you've previously registered a SoundCloud application, it should be listed at http://soundcloud.com/you/apps.
 
-On your first use of sc-cli, you will be prompted to enter the Client ID, Client Secret, your username and your password.  These will all be sent **directly** to Soundcloud which will provide an `access_token`.  The `access_token` will be written to `$HOME/.sc-cli`.
+On your first use of sc-cli, you will be prompted to enter the Client ID, Client Secret, your username and your password.  These will all be sent **directly** to SoundCloud which will provide an `access_token`.  The `access_token` will be written to `$HOME/.sc-cli`.
 
-*Note*: Anyone with access to this file can impersonate you on Soundcloud, so it's important to keep it secure, just as you would treat your SSH private key.
+*Note*: Anyone with access to this file can impersonate you on SoundCloud, so it's important to keep it secure, just as you would treat your SSH private key.
 
 If you ever need to re-authenticate, you can use `sc authenticate`.
 
@@ -40,7 +40,7 @@ Search
 
 ```
 name
-    search - searches the Soundcloud API
+    search - searches the SoundCloud API
     aliases: s
 
 usage
@@ -141,7 +141,7 @@ There are several other features as well:
 
 ```
 name
-    playlist - uses the Soundcloud API to get and modify playlists
+    playlist - uses the SoundCloud API to get and modify playlists
     aliases: set p playlists
 
 usage
@@ -174,7 +174,7 @@ usage
     sc track upload [options] filename1 filename2 ... filename N
 
 description
-    Uploads files to Soundcloud, accepting filenames as ending args or as a
+    Uploads files to SoundCloud, accepting filenames as ending args or as a
     newline-delimited list via STDIN.
 
 options
@@ -225,7 +225,8 @@ options for sc
 
 ```
 
-Another fun thing to do is to smashup songs from different genres.
+Another fun thing to do is to smashup songs from different genres.  By default, it will pick a sound from classical and a sound from storrytelling.
+
 
 ```
 $ sc smashup happy

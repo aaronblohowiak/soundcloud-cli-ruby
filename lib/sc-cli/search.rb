@@ -13,7 +13,7 @@ module ScCli::Search
       name 'search'
       aliases :s
       usage 'search [type] [options]'
-      summary 'searches the Soundcloud API'
+      summary 'searches the SoundCloud API'
     end
 
     define_search_endpoint(search, 'users')

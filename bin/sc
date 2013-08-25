@@ -11,7 +11,7 @@ end
 root = Cri::Command.define do
   name        'sc'
   usage       'sc [options] [command] [options]'
-  summary     'CLI for the Soundcloud API'
+  summary     'CLI for the SoundCloud API'
 
   flag   :h,  :help,  'show help for this command', &help_proc
 end
@@ -19,7 +19,7 @@ end
 root.define_command do
   name 'authenticate'
   usage 'authenticate'
-  summary 'Authenticates you with the Soundcloud API and writes your token to ~/.sc-cli'
+  summary 'Authenticates you with the SoundCloud API and writes your token to ~/.sc-cli'
 
   run do
     token = ScCli::Authentication.acquire_token!

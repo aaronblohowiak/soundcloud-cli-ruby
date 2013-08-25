@@ -9,13 +9,13 @@ module ScCli::Track
       aliases :t, :tracks
 
       usage 'track [action] [options]'
-      summary 'uses the Soundcloud API to get and modify tracks'
+      summary 'uses the SoundCloud API to get and modify tracks'
     end
 
     track.define_command do
       name 'upload'
       usage 'upload [options] filename1 filename2 ... filename N'
-      description 'Uploads files to Soundcloud, accepting filenames as ending args or as a newline-delimited list via STDIN.'
+      description 'Uploads files to SoundCloud, accepting filenames as ending args or as a newline-delimited list via STDIN.'
 
       optional :t, :title, 'the Title for the track. Not used if multiple filenames are provided.'
       optional :s, :sharing, 'public/private sharing. One of: public,private'
