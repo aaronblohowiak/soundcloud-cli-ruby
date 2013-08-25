@@ -52,6 +52,7 @@ Example:
 
 ```
 $ sc search users -q aaronblohowiak
+http://soundcloud.com/aaronblohowiak2
 http://soundcloud.com/aaronblohowiak
 
 ```
@@ -70,12 +71,12 @@ usage
     sc search tracks [options]
 
 options
-    -bf --bpm[from]           return tracks with at least this bpm value
-    -bt --bpm[to]             return tracks with at least this bpm value
-    -cf --created_at[from]    (yyyy-mm-dd hh:mm:ss) return tracks created at this date or later
-    -ct --created_at[to]      (yyyy-mm-dd hh:mm:ss) return tracks created at this date or earlier
-    -df --duration[from]      return tracks with at least this duration (in millis)
-    -dt --duration[to]        return tracks with at most this duration (in millis)
+    -b --bpm[from]           return tracks with at least this bpm value
+    -B --bpm[to]             return tracks with at least this bpm value
+    -c --created_at[from]    (yyyy-mm-dd hh:mm:ss) return tracks created at this date or later
+    -C --created_at[to]      (yyyy-mm-dd hh:mm:ss) return tracks created at this date or earlier
+    -d --duration[from]      return tracks with at least this duration (in millis)
+    -D --duration[to]        return tracks with at most this duration (in millis)
     -  --fields              the fields to output as csv. Default: permalink_url
     -f --filter              One of: all,public,private,streamable,downloadable
     -g --genres              a comma separated list of genres
@@ -86,7 +87,7 @@ options
     -  --offset              the number of results to skip. 0 by default, max 8000
     -q --q                   search term
     -t --tags                comma separated list of tags
-    -ty --types               a comma separated list of types
+    -T --types               a comma separated list of types
 
 options for search
     -h --help                show help for this command
@@ -116,7 +117,7 @@ options
     -  --json       Output the full response as json.
     -s --sharing    sharing options for your playlist. One of public,private.
     -t --title      the title for your playlist
-    -ids --tracks     comma-separated list of track ids.
+    -T --tracks     comma-separated list of track ids.
 
 options for playlist
     -h --help       show help for this command
@@ -144,6 +145,36 @@ options for sc
 
 ```
 
+
+Uploading Tracks
+===
+
+You can easily upload a directory's worth of tracks to soundcloud and create a new playlist.
+
+`sc track upload * --fields=id | sc playlist create --title="new playlist"`
+
+The track titles will be the filenames with their extensions stripped off.  Additionally, you could pass in a list of newline-delimited filenames to the command via STDIN.
+
+
+```
+
+usage
+    sc track upload [options] filename1 filename2 ... filename N
+
+description
+    Uploads files to Soundcloud, accepting filenames as ending args or as a
+    newline-delimited list via STDIN.
+
+options
+    -  --fields     the fields to output as csv. Default: permalink_url
+    -  --json       Output the full response as json.
+    -s --sharing    public/private sharing. One of: public,private
+    -t --title      the Title for the track. Not used if multiple filenames are provided.
+
+options for track
+    -h --help       show help for this command
+
+```
 
 Thanks
 ===

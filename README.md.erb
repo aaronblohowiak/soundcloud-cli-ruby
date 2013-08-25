@@ -69,6 +69,20 @@ There are several other features as well:
 ```
 
 
+Uploading Tracks
+===
+
+You can easily upload a directory's worth of tracks to soundcloud and create a new playlist.
+
+`sc track upload * --fields=id | sc playlist create --title="new playlist"`
+
+The track titles will be the filenames with their extensions stripped off.  Additionally, you could pass in a list of newline-delimited filenames to the command via STDIN.
+
+
+```
+<%= `sc track upload -h` %>
+```
+
 Thanks
 ===
 

@@ -17,21 +17,16 @@ module ScCli::Playlist
       description 'accepts track ids as a comma-separated list option or as a newline-separated list from STDIN.'
       required :t, :title, 'the title for your playlist'
       optional :s, :sharing, 'sharing options for your playlist. One of public,private.'
-      optional :ids, :tracks, 'comma-separated list of track ids.'
+      optional :T, :tracks, 'comma-separated list of track ids.'
       instance_eval &ScCli::Formatting
 
       run do |opts, args|
         fields, json = opts.delete(:fields), opts.delete(:json)
         opts[:sharing] ||= 'public'
 
-
-        ids = STDIN.read.split("\n")
+        ids = STDIN.tty? ? [] : STDIN.read.split("\n")
         ids += opts[:tracks].to_s.split(',')
 
-        $stderr.puts "Creating new playlist with the following ids:".foreground(:yellow)
-        ids.each{|id|
-          $stderr.puts id.to_s.foreground(:yellow)
-        }
         opts[:tracks] = ids.map{|id| {id: id}}
 
         result = ScCli.client.post('/playlists', :playlist => opts)
@@ -50,7 +45,6 @@ module ScCli::Playlist
 
       run do |opts, args|
         puts ScCli.client.delete('/playlists/'+opts[:id]).to_json
-        $stderr.puts "Deleted".foreground(:green)
       end
     end
 
@@ -60,7 +54,7 @@ module ScCli::Playlist
       summary 'Retrieve information about a playlist'
 
       required :i, :id, 'the id of the playlist to delete'
-      optional :sr, :'sub-resource', 'the subresource to fetch. One of: users,emails,secret-token'
+      optional :r, :'sub-resource', 'the subresource to fetch. One of: users,emails,secret-token'
       instance_eval &ScCli::Formatting
 
       run do |opts, args|
@@ -78,7 +72,6 @@ module ScCli::Playlist
           end
 
         results = ScCli.client.get('/playlists/'+opts[:id]+additional_path)
-
         ScCli.print_results(results, json, fields)
       end
     end

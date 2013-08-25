@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require './lib/sc-cli'
+require File.dirname(__FILE__) + '/lib/sc-cli'
 require 'cri'
 
 help_proc = Proc.new do |value, cmd|
@@ -29,6 +29,7 @@ end
 
 ScCli::Search.add_commands(root)
 ScCli::Playlist.add_commands(root)
+ScCli::Track.add_commands(root)
 
 
 unless STDOUT.tty?

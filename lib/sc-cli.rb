@@ -16,8 +16,13 @@ module ScCli
     else
       fields ||= default_field
       fields = fields.split(",")
-      Array(results).each do |t|
-        puts fields.map{|f| t[f]}.to_csv
+
+      if results.is_a? Hashie::Mash
+        results = [results] #Array(hsh) => hsh.to_a, which is NOT what we want :D
+      end
+
+      results.each do |result|
+        puts fields.map{|f| result[f]}.to_csv
       end
     end
   end
