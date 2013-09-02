@@ -264,3 +264,11 @@ Thanks
 ===
 
 Some of the authentication documentation was derrived from the documentation of the `t` ruby gem.
+
+
+Alternatives
+=====
+
+https://github.com/oMartell/sc
+
+
